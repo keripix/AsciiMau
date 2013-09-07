@@ -28,65 +28,19 @@ THE SOFTWARE.
 
 <html>
 <head>
-  <title>asciimo - create awesome ascii art with javascript! works in the browser or node.js</title>
-
+  <title>ASCIIMO</title>
 
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <table>
-    <tr valign = "middle">
-      <td><img src = "./../images/asciimo.png"/></td>
-      <td>
-        <br/>
-        <br/>      
-        <br/>      
-        <h1>greetings, i am asciimo</h1>
-        <h1>i create awesome ascii art with javascript!</h1>
-        <h1>i work in <a href = "http://github.com/marak/asciimo">node.js</a> and the <a href = "http://github.com/marak/asciimo">browser</a></h1>
-        <form>
-          <textarea id = "theCode" class = "box">art is fun</textarea>
-          <select id = "fontSelector" name = "fontSelector"></select>
-          <input type = "button" id = "run" name = "run" value = "<== change select box to change font.   type in the text area to change text. click here to force render.  " /> 
-          <br/>
-        </form>
-        <br/>
-        <span class = "ninja"><strong>protip:</strong> using a non webkit browser will let you quickly iterate through the select box using your keyboard. for some reason webkit likes to open the entire select box &gt;.&lt;</span>
-      </td>    
-    </tr>
-  </table>
-  <div id = "asciiArt" class = "box">
-    <pre>
-
-      tttt                 iiii                           ffffffffffffffff                                    
-      ttt:::t                i::::i                         f::::::::::::::::f                                   
-      t:::::t                 iiii                         f::::::::::::::::::f                                  
-      t:::::t                                              f::::::fffffff:::::f                                  
-      aaaaaaaaaaaaa  rrrrr   rrrrrrrrr   ttttttt:::::ttttttt         iiiiiii     ssssssssss         f:::::f       ffffffuuuuuu    uuuuuunnnn  nnnnnnnn    
-      a::::::::::::a r::::rrr:::::::::r  t:::::::::::::::::t         i:::::i   ss::::::::::s        f:::::f             u::::u    u::::un:::nn::::::::nn  
-      aaaaaaaaa:::::ar:::::::::::::::::r t:::::::::::::::::t          i::::i ss:::::::::::::s      f:::::::ffffff       u::::u    u::::un::::::::::::::nn 
-      a::::arr::::::rrrrr::::::rtttttt:::::::tttttt          i::::i s::::::ssss:::::s     f::::::::::::f       u::::u    u::::unn:::::::::::::::n
-      aaaaaaa:::::a r:::::r     r:::::r      t:::::t                i::::i  s:::::s  ssssss      f::::::::::::f       u::::u    u::::u  n:::::nnnn:::::n
-      aa::::::::::::a r:::::r     rrrrrrr      t:::::t                i::::i    s::::::s           f:::::::ffffff       u::::u    u::::u  n::::n    n::::n
-      a::::aaaa::::::a r:::::r                  t:::::t                i::::i       s::::::s         f:::::f             u::::u    u::::u  n::::n    n::::n
-      a::::a    a:::::a r:::::r                  t:::::t    tttttt      i::::i ssssss   s:::::s       f:::::f             u:::::uuuu:::::u  n::::n    n::::n
-      a::::a    a:::::a r:::::r                  t::::::tttt:::::t     i::::::is:::::ssss::::::s     f:::::::f            u:::::::::::::::uun::::n    n::::n
-      a:::::aaaa::::::a r:::::r                  tt::::::::::::::t     i::::::is::::::::::::::s      f:::::::f             u:::::::::::::::un::::n    n::::n
-      a::::::::::aa:::ar:::::r                    tt:::::::::::tt     i::::::i s:::::::::::ss       f:::::::f              uu::::::::uu:::un::::n    n::::n
-      aaaaaaaaaa  aaaarrrrrrr                      ttttttttttt       iiiiiiii  sssssssssss         fffffffff                uuuuuuuu  uuuunnnnnn    nnnnnn
-
-
-
-
-
-
-    </pre>
-
-
+  <textarea id="tulisan" placeholder="Tulis disini" name=""></textarea>
+  <select name="font">
+    <option value="Doh">Doh</option>
+  </select>
+  <p>ASCII....mau?</p>
+  <div id="asciiArt" class="box">
+    
   </div>
-  <a href = "http://github.com/marak/asciimo/">
-    <img alt="Fork me on GitHub" src="http://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" style="position: absolute; z-index: 10; top: 0pt; right: 0pt; border: 0pt none;">
-  </a>
   <script src="./../lib/asciimo.js"></script>
   <script src="./../lib/fonts.js"></script>
   <script src="./../bower_components/jquery/jquery.js"></script>
