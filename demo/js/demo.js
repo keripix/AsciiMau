@@ -49,6 +49,7 @@
    */
   $(document).on("fontLoaded", function(e, data){
     if (data.font) {
+      console.log("font loaded");
       currentFont = data.font;
       // publikasikan bahwa font yang seharusnya dipakai
       // untuk menuliskan asciiArt sudah berubah
@@ -62,6 +63,7 @@
    * Dijalankan ketika font yang dipakai berubah
    */
   $(document).on("currentFontUpdated", function(e, data){
+    console.log("currentFontUpdated");
     renderFont($tulisan.val(), data.currentFont);
   });
 
@@ -70,16 +72,8 @@
    */
   $(document).on("writtenTextUpdated", function(e, data){
     if (data.text) {
+      console.log("writtenTextUpdated");
       renderFont(data.text, currentFont);
-    }
-  });
-
-  /**
-   * Dijalankan ketika tulisan dalam bentuk Ascii mengalami perubahan
-   */
-  $(document).on("asciiArtUpdated", function(e, data){
-    if (data.asciiArt) {
-      $("#asciiArt").html("<pre>" + data.asciiArt + "</pre>")
     }
   });
   
@@ -89,7 +83,6 @@
   $fontlistEl.change(function(){
     // jangan publish bila tidak ada font yang dipilih
     if ($(this).val().length) {
-      console.log("doign");
       $(document).trigger("fontlistUpdated", {
         fontName: $(this).val()
       });

@@ -1,5 +1,15 @@
+h1 {
+  text-align: center;
+}
+
+#font-list {
+  display: block;
+}
+
 #tulisan {
-  width: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
   height: 100px;
 }
 
