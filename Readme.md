@@ -13,3 +13,11 @@ Anda dapat melihat contoh bagaimana **asciimau** dapat digunakan dengan melihat 
 + Penanganan Kesalahan
 + Pengujian Otomatis
 + Percantik tampilan
+
+## SAPA-MENYAPA
+
+Terimakasih kepada pengembang **asciimo**. Tanpa mereka, saya bakal pusing 3/4 mati dalam menggarap pustaka ini.
+
+## LICENSE
+
+MIT

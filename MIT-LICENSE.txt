@@ -2,6 +2,8 @@ Copyright (c) 2010
 Marak Squires http://github.com/marak/asciimo/
 Scott González http://github.com/scottgonzalez/figlet-js
 
+Copyright (c) 2013 Akbar Hidayat, keripix@gmail.com
+
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including
