@@ -5,7 +5,7 @@
       fontList = global.fontList,
       $fontlistEl = $("#font-list"),
       $tulisan = $("#tulisan"),
-      currentFont = undefined;
+      currentFont;
 
   /**
    * Memuat fonts
@@ -17,15 +17,42 @@
   }, this);
 
   /**
+   * Yang bertugas merender font
+   */
+  function renderFont(writtenData, font){
+    asciiMau.write(writtenData, font, function(asciiArt){
+      $("#asciiArt").html("<pre>" + asciiArt + "</pre>")
+    });
+  }
+
+  /**
    * Event handler yang akan kita gunakan
    */
   
   $(document).on("fontUpdated", function(e, data){
-
+    // muat font, dan ketika selesai jalankan callback
+    asciiMau.loadFont(data.fontName, function(font){
+      // publikasikan kepada dunia bahwa font sudah siap
+      // dipakai
+      $(document).trigger("fontLoaded", {
+        font: font
+      });
+    });
   });
 
   $(document).on("fontLoaded", function(e, data){
-    currentFont = data.font;
+    if (data.font) {
+      currentFont = data.font;
+      // publikasikan bahwa font yang seharusnya dipakai
+      // untuk menuliskan asciiArt sudah berubah
+      $(document).trigger("currentFontUpdated", {
+        currentFont: currentFont
+      });
+    }
+  });
+
+  $(document).on("currentFontUpdated", function(e, data){
+    renderFont($tulisan.val(), data.currentFont);
   });
 
   $(document).on("writtenTextUpdated", function(e, data){
@@ -38,24 +65,13 @@
     }
   });
   
-  function handleLoadedFont(font){
-    renderFont($tulisan.val(), font);
-  }
-
-  function renderFont(writtenData, font){
-    asciiMau.write(writtenData, font, function(asciiArt){
-      $("#asciiArt").html("<pre>" + asciiArt + "</pre>")
-    });
-  }
-  
   /**
    * Mendengarkan events
    */
   $fontlistEl.change(function(){
     $(document).trigger("fontUpdated", {
-      name: $(this).val()
+      fontName: $(this).val()
     });
-    // asciiMau.loadFont($(this).val(), handleLoadedFont);
   });
 
   $tulisan.keyup(function(){
