@@ -40,7 +40,6 @@
   $(document).on("fontlistUpdated", function(e, data){
     // muat font, dan ketika selesai jalankan callback
     asciiMau.loadFont(data.fontName, function(font){
-      console.log("just loaded");
       // publikasikan kepada dunia bahwa font sudah siap
       // dipakai
       $(document).trigger("fontLoaded", {
@@ -54,7 +53,6 @@
    */
   $(document).on("fontLoaded", function(e, data){
     if (data.font) {
-      console.log("font loaded");
       currentFont = data.font;
       // publikasikan bahwa font yang seharusnya dipakai
       // untuk menuliskan asciiArt sudah berubah
@@ -68,7 +66,7 @@
    * Dijalankan ketika font yang dipakai berubah
    */
   $(document).on("currentFontUpdated", function(e, data){
-    console.log("currentFontUpdated");
+    // kita perlu melukis tulisan menjadi ASCII ART
     renderFont($tulisan.val(), data.currentFont);
   });
 
@@ -77,6 +75,7 @@
    */
   $(document).on("writtenTextUpdated", function(e, data){
     if (data.text) {
+      // kita perlu melukis tulisan menjadi ASCII ART
       renderFont(data.text, currentFont);
     }
   });
