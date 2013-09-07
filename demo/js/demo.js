@@ -56,7 +56,9 @@
   });
 
   $(document).on("writtenTextUpdated", function(e, data){
-
+    if (data.text) {
+      renderFont(data.text, currentFont);
+    }
   });
 
   $(document).on("asciiArtUpdated", function(e, data){
@@ -69,16 +71,19 @@
    * Mendengarkan events
    */
   $fontlistEl.change(function(){
-    $(document).trigger("fontUpdated", {
-      fontName: $(this).val()
-    });
+    // jangan publish bila tidak ada font yang dipilih
+    if ($(this).val().length) {
+      console.log("doign");
+      $(document).trigger("fontUpdated", {
+        fontName: $(this).val()
+      });
+    }
   });
 
   $tulisan.keyup(function(){
     $(document).trigger("writtenTextUpdated", {
       text: $(this).val()
     });
-    // renderFont($(this).val());
   });
   
 
