@@ -20,6 +20,10 @@
    * Yang bertugas merender font
    */
   function renderFont(writtenData, font){
+    if (!font) {
+      return;
+    }
+    
     asciiMau.write(writtenData, font, function(asciiArt){
       $("#asciiArt").html("<pre>" + asciiArt + "</pre>")
     });
@@ -36,6 +40,7 @@
   $(document).on("fontlistUpdated", function(e, data){
     // muat font, dan ketika selesai jalankan callback
     asciiMau.loadFont(data.fontName, function(font){
+      console.log("just loaded");
       // publikasikan kepada dunia bahwa font sudah siap
       // dipakai
       $(document).trigger("fontLoaded", {
@@ -72,7 +77,6 @@
    */
   $(document).on("writtenTextUpdated", function(e, data){
     if (data.text) {
-      console.log("writtenTextUpdated");
       renderFont(data.text, currentFont);
     }
   });
