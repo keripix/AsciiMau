@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 
 <!-- 
 
@@ -85,8 +85,8 @@ THE SOFTWARE.
 
       // populate the select box
       for(var i = 0; i<Figlet.fontList.length; i++){
-      var fontTitle = Figlet.fontList[i].replace('.flf','').replace('.aol',''); // remove the file extentions for the title
-      $('#fontSelector').append('<option value = "'+Figlet.fontList[i]+'">'+fontTitle+'</option>');
+        var fontTitle = Figlet.fontList[i].replace('.flf','').replace('.aol',''); // remove the file extentions for the title
+        $('#fontSelector').append('<option value = "'+Figlet.fontList[i]+'">'+fontTitle+'</option>');
       }
 
       // protip : understanding the following two blocks of code will make you jQuery ninja
