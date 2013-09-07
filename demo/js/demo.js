@@ -29,6 +29,10 @@
    * Event handler yang akan kita gunakan
    */
   
+  /**
+   * Dijalankan ketika user memilih salah satu font pada combobox
+   * daftar font
+   */
   $(document).on("fontlistUpdated", function(e, data){
     // muat font, dan ketika selesai jalankan callback
     asciiMau.loadFont(data.fontName, function(font){
@@ -40,6 +44,9 @@
     });
   });
 
+  /**
+   * Dijalankan ketika font baru berhasil di load
+   */
   $(document).on("fontLoaded", function(e, data){
     if (data.font) {
       currentFont = data.font;
@@ -51,16 +58,25 @@
     }
   });
 
+  /**
+   * Dijalankan ketika font yang dipakai berubah
+   */
   $(document).on("currentFontUpdated", function(e, data){
     renderFont($tulisan.val(), data.currentFont);
   });
 
+  /**
+   * Dijalankan ketika text tulisan mengalami perubahan
+   */
   $(document).on("writtenTextUpdated", function(e, data){
     if (data.text) {
       renderFont(data.text, currentFont);
     }
   });
 
+  /**
+   * Dijalankan ketika tulisan dalam bentuk Ascii mengalami perubahan
+   */
   $(document).on("asciiArtUpdated", function(e, data){
     if (data.asciiArt) {
       $("#asciiArt").html("<pre>" + data.asciiArt + "</pre>")
