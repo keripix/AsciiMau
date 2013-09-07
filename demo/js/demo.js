@@ -29,7 +29,7 @@
    * Event handler yang akan kita gunakan
    */
   
-  $(document).on("fontUpdated", function(e, data){
+  $(document).on("fontlistUpdated", function(e, data){
     // muat font, dan ketika selesai jalankan callback
     asciiMau.loadFont(data.fontName, function(font){
       // publikasikan kepada dunia bahwa font sudah siap
@@ -74,7 +74,7 @@
     // jangan publish bila tidak ada font yang dipilih
     if ($(this).val().length) {
       console.log("doign");
-      $(document).trigger("fontUpdated", {
+      $(document).trigger("fontlistUpdated", {
         fontName: $(this).val()
       });
     }
